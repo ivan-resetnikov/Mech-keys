@@ -14,9 +14,9 @@ And by doing so you will be credited for the work you do.
 
 
 ## 🎯 Goals
-* ~~Add bare-bones features (by @LowRezCar)~~
-* ~~Add key loader (by @LowRezCar)~~
-* Fix sound spam on hold issue
+* ~~Add bare-bones features (by @LowRezCat)~~
+* ~~Add key loader (by @LowRezCat)~~
+* ~~Fix sound spam on hold issue (by @LowRezCat)~~
 
 
 ## 📬 Contact me
