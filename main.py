@@ -29,8 +29,6 @@ class MechKeys :
 
 		self.window.mainloop()
 
-		self.sound.stopStream()
-
 
 if __name__ == '__main__':
 	MechKeys().run()

@@ -28,16 +28,15 @@ class Sound :
 
 
 	def streamThread(self):
-		with pynput.keyboard.Listener(on_press=self.play) as listener:
+		self.holding = []
+
+		with pynput.keyboard.Listener(on_press=self.play, on_release=self.release) as listener:
 			listener.join()
+
 
 
 	def startStream(self):
 		self.stream.start()
-
-
-	def stopStream(self):
-		self.stream.stop()
 
 
 	def setVolume(self, volume:int) -> None:
@@ -46,7 +45,20 @@ class Sound :
 
 	def play(self, key) -> None:
 		keyName = str(key)[4::]
-		if keyName in tuple(self.keys.keys()):
-			self.keys[keyName].play()
-		else:
-			self.keys['other'].play()
+
+		if not keyName in self.holding :
+			if keyName in tuple(self.keys.keys()):
+				self.keys[keyName].play()
+			else:
+				self.keys['other'].play()
+
+			self.holding.append(keyName)
+
+
+	def release (self, key) :
+		keyName = str(key)[4::]
+
+		try :
+			self.holding.remove(keyName)
+		except ValueError :
+			pass
