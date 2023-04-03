@@ -17,6 +17,9 @@ And by doing so you will be credited for the work you do.
 * ~~Add bare-bones features (by @LowRezCat)~~
 * ~~Add key loader (by @LowRezCat)~~
 * ~~Fix sound spam on hold issue (by @LowRezCat)~~
+* ~~Add logging (by @LowRezCat)~~
+* ~~Add copyright message~~
+* Add sound controller
 
 
 ## 📬 Contact me

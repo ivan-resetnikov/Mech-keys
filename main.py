@@ -65,7 +65,8 @@ class MechKeys :
 			command=lambda:os.system('start mailto:ivan.resetnikov@proton.me')).grid(row=2, column=2, padx=10, pady=100)
 
 		# copyright
-		
+		ttk.Label(self.window,
+			text='Copyright © 2023 LowRezCat').grid(row=3, column=0, columnspan=3, padx=10, pady=80)
 
 		self.window.mainloop()
 		logging.info('Stopped program')

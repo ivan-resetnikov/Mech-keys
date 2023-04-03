@@ -8,7 +8,7 @@ pg.mixer.init()
 
 
 
-def loadSoundFile(path:str, vol:float=0.25) -> pg.mixer.Sound:
+def loadSoundFile(path:str, vol:float=0.2) -> pg.mixer.Sound:
 	sound = pg.mixer.Sound(path)
 	sound.set_volume(vol)
 	return sound

@@ -1,6 +1,4 @@
 INFO:root:Initializing theme.tcl
 INFO:root:Setting theme to dark
 DEBUG:root:Changing title bar theme to dark
-INFO:root:Availible packs: ['backspace.wav', 'enter.wav', 'other.wav', 'space.wav']
-DEBUG:root:Loading pack: Default
-INFO:root:Loaded keys: {'backspace': <pygame.mixer.Sound object at 0x00000241C00E77B0>, 'enter': <pygame.mixer.Sound object at 0x00000241C00E77E0>, 'other': <pygame.mixer.Sound object at 0x00000241C00E7810>, 'space': <pygame.mixer.Sound object at 0x00000241C00E7840>}
+INFO:root:Stopped program
