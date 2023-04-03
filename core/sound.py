@@ -7,35 +7,31 @@ pg.mixer.init()
 
 
 
-def loadSoundFile(path:str, vol:float=0.3) -> pg.mixer.Sound:
+def loadSoundFile(path:str, vol:float=0.25) -> pg.mixer.Sound:
 	sound = pg.mixer.Sound(path)
 	sound.set_volume(vol)
 	return sound
 
 
-class Sound :
-	def __init__(self, name:str):
-		self.loadSound(name)
 
+class Sound :
+	def __init__(self):
 		self.stream = threading.Thread(target=self.streamThread)
 
 
-	def loadSound(self, name:str):
+	def loadSound(self, name:str) -> None:
 		self.keys = {}
 
-		for soundFile in os.listdir('sounds/') :
-			self.keys[soundFile[:-4:]] = loadSoundFile(f'sounds/{soundFile}')
+		for soundFile in os.listdir(f'sounds/{name}/') :
+			self.keys[soundFile[:-4:]] = loadSoundFile(f'sounds/{name}/{soundFile}')
 
 
-	def streamThread(self):
-		self.holding = []
-
-		with pynput.keyboard.Listener(on_press=self.play, on_release=self.release) as listener:
+	def streamThread(self) -> None:
+		with pynput.keyboard.Listener(on_press=self.play) as listener:
 			listener.join()
 
 
-
-	def startStream(self):
+	def startStream(self) -> None:
 		self.stream.start()
 
 
@@ -46,19 +42,11 @@ class Sound :
 	def play(self, key) -> None:
 		keyName = str(key)[4::]
 
-		if not keyName in self.holding :
+		try:
 			if keyName in tuple(self.keys.keys()):
 				self.keys[keyName].play()
 			else:
 				self.keys['other'].play()
 
-			self.holding.append(keyName)
-
-
-	def release (self, key) :
-		keyName = str(key)[4::]
-
-		try :
-			self.holding.remove(keyName)
-		except ValueError :
-			pass
+		except AttributeError:
+			print('Error: No sound pack loaded')
